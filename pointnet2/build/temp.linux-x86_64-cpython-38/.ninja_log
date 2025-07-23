@@ -1,0 +1,12 @@
+# ninja log v6
+0	6307	1753281716750637666	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/ball_query_gpu.o	7308dbcfe0790283
+2	6533	1753281716752637683	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/sampling_gpu.o	a3a229d0f915ff08
+1	6709	1753281716751637674	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/group_points_gpu.o	b8c704e048387640
+1	6924	1753281716751637674	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/cylinder_query_gpu.o	6aff67106acea862
+2	7824	1753281716752637683	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/interpolate_gpu.o	2b6be532e01c4f6b
+0	8406	1753281716750637666	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/ball_query.o	e26cb41c970d8c1a
+1	8421	1753281716751637674	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/group_points.o	b2e2da6f19e131cd
+2	8537	1753281716752637683	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/sampling.o	e0cd1861871726d7
+1	9648	1753281716751637674	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/bindings.o	3a5fc13e0f42affe
+1	10443	1753281716751637674	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/cylinder_query.o	40e404c4c6481681
+2	10846	1753281716752637683	/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-38/_ext_src/src/interpolate.o	c376674d00d8e047

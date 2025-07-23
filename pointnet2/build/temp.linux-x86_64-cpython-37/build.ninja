@@ -1,0 +1,36 @@
+ninja_required_version = 1.3
+cxx = /usr/bin/g++-9
+nvcc = /usr/bin/nvcc
+
+cflags = -pthread -B /home/nikita/anaconda3/envs/sgd/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/home/nikita/anaconda3/envs/sgd/lib/python3.7/site-packages/torch/include -I/home/nikita/anaconda3/envs/sgd/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -I/home/nikita/anaconda3/envs/sgd/lib/python3.7/site-packages/torch/include/TH -I/home/nikita/anaconda3/envs/sgd/lib/python3.7/site-packages/torch/include/THC -I/home/nikita/anaconda3/envs/sgd/include/python3.7m -c
+post_cflags = -O2 -std=c++14 -I/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/include -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_ext -D_GLIBCXX_USE_CXX11_ABI=0
+cuda_cflags = -I/home/nikita/anaconda3/envs/sgd/lib/python3.7/site-packages/torch/include -I/home/nikita/anaconda3/envs/sgd/lib/python3.7/site-packages/torch/include/torch/csrc/api/include -I/home/nikita/anaconda3/envs/sgd/lib/python3.7/site-packages/torch/include/TH -I/home/nikita/anaconda3/envs/sgd/lib/python3.7/site-packages/torch/include/THC -I/home/nikita/anaconda3/envs/sgd/include/python3.7m -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O2 -std=c++14 -I/home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/include -ccbin /usr/bin/g++-9 -isystem /usr/include/c++/9 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_ext -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_86,code=sm_86
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  command = $nvcc $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/ball_query.o: compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/ball_query.cpp
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/ball_query_gpu.o: cuda_compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/ball_query_gpu.cu
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/bindings.o: compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/bindings.cpp
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/cylinder_query.o: compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/cylinder_query.cpp
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/cylinder_query_gpu.o: cuda_compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/cylinder_query_gpu.cu
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/group_points.o: compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/group_points.cpp
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/group_points_gpu.o: cuda_compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/group_points_gpu.cu
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/interpolate.o: compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/interpolate.cpp
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/interpolate_gpu.o: cuda_compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/interpolate_gpu.cu
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/sampling.o: compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/sampling.cpp
+build /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/build/temp.linux-x86_64-cpython-37/_ext_src/src/sampling_gpu.o: cuda_compile /home/nikita/diplom/Scale-Balanced-Grasp/pointnet2/_ext_src/src/sampling_gpu.cu
+
+
+
+
+

@@ -1,0 +1,4 @@
+# ninja log v6
+1	329	1753281740282839411	/home/nikita/diplom/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-38/home/nikita/diplom/Scale-Balanced-Grasp/knn/src/cuda/knn.o	df917972f4375d0b
+0	4749	1753281740282839411	/home/nikita/diplom/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-38/home/nikita/diplom/Scale-Balanced-Grasp/knn/src/cpu/knn_cpu.o	e07ee48dc8351db9
+1	8030	1753281740282839411	/home/nikita/diplom/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-38/home/nikita/diplom/Scale-Balanced-Grasp/knn/src/vision.o	f9d4b90bf598cfb0

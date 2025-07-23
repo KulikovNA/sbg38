@@ -1,0 +1,10 @@
+# ninja log v6
+3	954	1731503367202556768	/home/danil/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-37/home/danil/Scale-Balanced-Grasp/knn/src/cuda/knn.o	4b1f86733522cbbd
+0	11857	1731503367199556683	/home/danil/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-37/home/danil/Scale-Balanced-Grasp/knn/src/cpu/knn_cpu.o	ef24b82f156ba3dd
+4	20029	1731503367203556796	/home/danil/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-37/home/danil/Scale-Balanced-Grasp/knn/src/vision.o	b12d4b01bf049c57
+7	683	1731564798691652793	/home/danil/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-37/home/danil/Scale-Balanced-Grasp/knn/src/cuda/knn.o	b8f84a0b79ae8ae
+6	9126	1731564798690652748	/home/danil/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-37/home/danil/Scale-Balanced-Grasp/knn/src/cpu/knn_cpu.o	9594131540b8e706
+7	16507	1731564798691652793	/home/danil/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-37/home/danil/Scale-Balanced-Grasp/knn/src/vision.o	358507dc9786e255
+1	357	1744287260855102604	/home/nikita/diplom/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-37/home/nikita/diplom/Scale-Balanced-Grasp/knn/src/cuda/knn.o	8261f60ea819636f
+1	4346	1744287260855102604	/home/nikita/diplom/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-37/home/nikita/diplom/Scale-Balanced-Grasp/knn/src/cpu/knn_cpu.o	c836ff9a85180565
+2	7978	1744287260856102613	/home/nikita/diplom/Scale-Balanced-Grasp/knn/build/temp.linux-x86_64-cpython-37/home/nikita/diplom/Scale-Balanced-Grasp/knn/src/vision.o	c50866cc98288198

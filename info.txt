@@ -1,0 +1,45 @@
+conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=11.0 -c pytorch
+
+# меняем в requirements.txt версию pytorch
+pip install -r requirements.txt
+
+
+sudo apt-get install g++-9
+export CXX=/usr/bin/g++-9
+export NVCC_FLAGS="-ccbin /usr/bin/g++-9"
+
+cd pointnet2/
+
+
+python setup.py install
+
+cd ../knn
+
+# меняем в setup.py версию numpy на 1.21.5
+
+pip install .
+
+sudo apt-get install --reinstall libgl1-mesa-dri
+
+export LIBGL_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
+export LIBGL_ALWAYS_SOFTWARE=1
+
+conda update -c conda-forge libstdcxx-ng
+
+bash run_sbg_inference.sh
+
+
+PATCH_DIRS="/home/nikita/anaconda3/envs/sbg38/lib/python3.8/site-packages/graspnetAPI /home/nikita/anaconda3/envs/sbg38/lib/python3.8/site-packages/transforms3d"
+
+for dir in $PATCH_DIRS; do
+  find "$dir" -name "*.py" | while read file; do
+    sed -i 's/np\.float/float/g' "$file"
+    sed -i 's/np\.int/int/g' "$file"
+    sed -i 's/np\.bool/bool/g' "$file"
+    sed -i 's/np\.complex/complex/g' "$file"
+    sed -i 's/np\.object/object/g' "$file"
+    sed -i 's/np\.str/str/g' "$file"
+  done
+done
+
+
