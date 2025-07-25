@@ -136,10 +136,6 @@ class SBGGraspDetector:
             masks.append(m.astype(bool))
 
         mask_vis = seg_vis.copy()
-        #rand_col = lambda: tuple(int(c) for c in np.random.randint(0, 255, 3))
-        #for m in masks:
-        #    mask_vis[m] = rand_col()
-        
 
         # 2. Point cloud -----------------------------------------------------
         z = depth_img.astype(np.float32) * depth_scale
@@ -190,8 +186,31 @@ class SBGGraspDetector:
                 if 0 <= ui < w and 0 <= vi < h:
                     cv2.circle(seg_vis, (ui, vi), 5, (0, 255, 0), -1)
 
+        # ---- 7. Выбор лучшего захвата для каждой маски ------------------------
+        best_by_mask: list[np.ndarray] = []
+        if gg_array.size and masks:
+            centers = gg_array[:, 13:16]       # XYZ центров захватов
+            scores  = gg_array[:, 0]           # «качество» захвата
+
+            for m in masks:
+                bb = self._mask_to_bbox3d(m, depth_img, intr, depth_scale)
+                if bb is None:                      # 3‑D bbox не получилось
+                    continue
+
+                inside = self._filter_centers_in_bbox(centers, bb)
+                inside &= gg_array[:, 1] <= self.gripper_width_max  # ≤ 60 мм
+
+                if inside.any():                    # есть хотя‑бы один захват
+                    i_best = scores[inside].argmax()
+                    best_by_mask.append(gg_array[inside][i_best])
+
+        best_by_mask = (
+            np.stack(best_by_mask).astype(np.float32)
+            if best_by_mask else np.empty((0, 17), np.float32)
+        )
+
         # 7. Возвращаем «сырой» массив (k,17)  -------------------------------
-        return gg_array, seg_vis, mask_vis
+        return gg_array, best_by_mask, seg_vis, mask_vis
 
 
 
